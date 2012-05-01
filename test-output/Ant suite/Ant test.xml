@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="hobby" name="org.openqa.selenium.example.LocalTest" tests="1" failures="0" timestamp="16 Jan 2012 18:12:38 GMT" time="5.512" errors="0">
+  <testcase name="verifyTenthPage" time="1.7" classname="org.openqa.selenium.example.LocalTest"/>
+</testsuite>

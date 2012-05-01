@@ -1,0 +1,30 @@
+== WHAT IS THIS? ==
+This is a test automation framework using Selenium WebDriver/TestNG/Ant/Maven and page-object approach (PageFactory).
+
+== HOW TO USE IT? ==
+Example site included, just unpack localsite_files.tar.gz archive to the selng/ subdirectory of your local web server's root directory.
+Initial framework contains examples of tests.
+
+You can run Ant targets either directly or via Maven Antrun plugin (Maven is not needed if using targets directly).
+
+Ant targets:
+	ant clean - remove old classes and directories
+	ant build - compile changed classes
+	ant run_test -Dfeature="LocalTest" -Dtest="verifyNinethPage" - run a specific test
+	ant run_chrome_tests -Dgroups="regression,smoke" -Dexcludedgroups="inprogress" - run all tests from the selected groups under Chrome browser, excluding certain groups
+	ant run_firefox_tests -Dgroups="regression,smoke" -Dexcludedgroups="inprogress" - run all tests from the selected groups under Firefox browser, excluding certain groups
+
+This way you can run the above targets using Maven Antrun plugin:
+	mvn -P ant-target -D target=clean
+	mvn -P ant-target -D target=build
+	mvn -P ant-target -D target=run_firefox_tests -Dgroups="regression,smoke" -Dexcludedgroups="inprogress"
+
+== REQUIREMENTS ==
+	Java >= 1.6
+	Apache Ant
+	Maven
+	Web browser (FF, Chrome, IE).
+	Chromedriver is required for Chrome, you can find it here: http://code.google.com/p/selenium/wiki/ChromeDriver
+	OS: Linux, Windows or Mac OS X.
+
+Enjoy!

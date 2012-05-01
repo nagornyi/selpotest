@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Ant suite]">
+  <test name="Ant test(failed)" preserve-order="false">
+    <classes>
+      <class name="org.openqa.selenium.example.LocalTest">
+        <methods>
+          <include name="startDriver"/>
+          <include name="stopDriver"/>
+          <include name="verifyTenthPage"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>
