@@ -1,5 +1,5 @@
-<project basedir="." name="Test Automation">
-		<property name="build.compiler" value="extJavac"/>
+<project basedir="." name="Test Automation" default="help">
+    <property name="build.compiler" value="extJavac"/>
     <property name="src.dir" value="${basedir}/java/src"/>
     <property name="resources.dir" value="${basedir}/java/resources"/>
     <property name="classes.dir" value="${basedir}/java/classes/main"/>
@@ -17,6 +17,9 @@
     <target name="clean" description="cleans build output">
         <delete dir="${classes.dir}" quiet="true" includeemptydirs="true"/>
         <delete dir="${build.dir}" quiet="true" includeemptydirs="true"/>
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${build.dir}"/>
+	<mkdir dir="${resources.dir}"/>
     </target>
 
     <target name="resources">
@@ -26,8 +29,6 @@
     </target>
 
     <target name="build" depends="resources" description="sets up the environment for test execution">
-        <mkdir dir="${classes.dir}"/>
-        <mkdir dir="${build.dir}"/>
         <javac debug="true"
                srcdir="${src.dir}"
                destdir="${classes.dir}"
@@ -61,11 +62,17 @@
 	<!-- groups and excludedgroups parameters are optional -->
 	<target name="run_firefox_tests" description="run all tests of selected type(s)">
 		<property name="groups" value=""/>
-		<property name="excludedgroups" value=""/>
+		<property name="excludedgroups" value=""/>		
 		<testng classpathref="testautomation.classpath" groups="${groups}" excludedgroups="${excludedgroups}">
 			<xmlfileset dir="${basedir}" includes="firefox_tests.xml"/>
 		</testng>
 	</target>
+
+    <target name="help">
+        <echo message="Syntax: ant run_test -Dfeature=&quot;LocalTest&quot; -Dtest=&quot;verifyNinethPage&quot;" />
+        <echo message="Syntax: ant run_firefox_tests -Dgroups=&quot;regression,smoke&quot; -Dexcludedgroups=&quot;inprogress&quot;" />
+        <echo message="Syntax: ant run_chrome_tests -Dgroups=&quot;regression,smoke&quot; -Dexcludedgroups=&quot;inprogress&quot;" />
+    </target>
 
 </project>
 
