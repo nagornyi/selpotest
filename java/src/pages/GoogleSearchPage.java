@@ -9,15 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 
 //Searching for some text in Google
 public class GoogleSearchPage extends GoogleSite {
-	public static String path = "";
-
-  @FindBy(name = "q")
-  private WebElement searchBox;
-
-  public GoogleResultsPage searchFor(String text) {
-    searchBox.sendKeys(text);
-    searchBox.submit();
-  	return PageFactory.initElements(driver, GoogleResultsPage.class);
-  }
+    public static String path = "";
+    
+    @FindBy(name = "q")
+    private WebElement searchBox;
+    
+    public GoogleResultsPage searchFor(String text) {
+        searchBox.sendKeys(text);
+        searchBox.submit();
+        return PageFactory.initElements(driver, GoogleResultsPage.class);
+    }
 }
-

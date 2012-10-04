@@ -32,4 +32,3 @@ public class Local3Page extends MyLocalSite {
 		return MyLocalSite.first_page();
 	}
 }
-
