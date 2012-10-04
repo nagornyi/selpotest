@@ -1,3 +1,5 @@
 build/
 test-output/
+java/classes
+java/resources
 chromedriver.log
